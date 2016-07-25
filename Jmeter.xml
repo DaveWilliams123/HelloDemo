@@ -20,7 +20,7 @@
     <jmeter
        jmeterhome="${jmeter-home}"
        resultlogdir="results/jtl">
-      <testplans dir="test/jmeter" includes="*.jmx"/>
+      <testplans dir="tests/jmeter" includes="*.jmx"/>
       <property name="jmeter.save.saveservice.output_format" value="xml"/>
     </jmeter>
   </target>
