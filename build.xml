@@ -64,7 +64,7 @@
           	<target name="build-jar">
           	   <jar 
           	   	destfile="HelloTest.jar"
-          	   	basedir="bin"
+          	   	basedir="bindddd"
           	  	includes = "*.*"
           	   	>
 
