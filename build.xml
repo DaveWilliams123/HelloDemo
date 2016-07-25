@@ -52,6 +52,11 @@
             <jvmarg line="-ea"/>
             <classpath refid="HelloDemo.classpath"/>
         </junit>
+    	 <jar 
+    	          	   	jarfile="HelloTest.jar"
+    	          	   	basedir="bin"
+    	          	  	includes = "*.class"
+    	          	   	/>
     </target>
     <target name="junitreport">
         <junitreport todir="${junit.output.dir}">
@@ -61,13 +66,5 @@
             <report format="frames" todir="${junit.output.dir}"/>
         </junitreport>
     </target>
-          	<target name="build-jar">
-          	   <jar 
-          	   	jarfile="HelloTest.jar"
-          	   	basedir="bin"
-          	  	includes = "*.*"
-          	   	>
-
-          	   </jar>
-          	</target>
+          	
 </project>
