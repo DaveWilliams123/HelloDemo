@@ -37,8 +37,8 @@
             <src path="src"/>
             <classpath refid="HelloDemo.classpath"/>
         </javac>
-    	 <jar jarfile="bin\HelloTest.jar" 	basedir="bin"  	includes = "*.class"/>
-    </target>
+    	 <jar jarfile="${env.JMETER_HOME}/lib/junit/HelloTest.jar" 	basedir="bin"  	includes = "*.class" update="true"/>
+        </target>
     <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
     <target name="HelloWorld (1)">
         <java classname="HelloWorld" failonerror="true" fork="yes">
