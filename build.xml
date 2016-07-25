@@ -17,6 +17,16 @@
         <pathelement location="bin"/>
         <path refid="JUnit 4.libraryclasspath"/>
     </path>
+              	<target name="echoVariables">
+              	   <echo>
+              	      Here are sample environment variables in my operating system:
+              	      ${env.CommonProgramFiles}
+              	      ${env.CommonProgramFiles(x86)}
+              	      ${env.CommonProgramW6432}
+              	      ${env.JMETER_HOME}
+              	   </echo>
+              	</target>
+
     <target name="init">
         <mkdir dir="bin"/>
         <copy includeemptydirs="false" todir="bin">
