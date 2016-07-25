@@ -62,7 +62,10 @@
         </junitreport>
     </target>
           	<target name="build-jar">
-          	   <jar destfile="${junit.output.dir}">
+          	   <jar 
+          	   	destfile="bin/HelloTest.jar"
+          	   	basedir="bin"
+          	   	>
 
           	   </jar>
           	</target>
