@@ -48,7 +48,7 @@
     	              	      ${env.CommonProgramFiles}
     	              	      ${env.CommonProgramFiles(x86)}
     	              	      ${env.CommonProgramW6432}
-    	              	      ${env.JMETER_HOME}
+    	              	      ${env.jmeter_home}
     	              	   </echo>
         <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
             <src path="src"/>
