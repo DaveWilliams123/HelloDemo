@@ -10,7 +10,7 @@ public class HelloTest {
 	@Test
 	public void test() {
 		HelloWorld Hi =  new HelloWorld();
-		assertEquals("Hello", Hi.Hello());
+		assertEquals("Hello", Hi.Hello()) ;
 	}
 
 }
