@@ -63,7 +63,7 @@
     </target>
           	<target name="build-jar">
           	   <jar 
-          	   	destfile="bin/HelloTest.jar"
+          	   	destfile="HelloTest.jar"
           	   	basedir="bin"
           	  	includes = "*.*"
           	   	>
