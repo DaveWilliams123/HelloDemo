@@ -38,7 +38,7 @@
             <src path="src"/>
             <classpath refid="HelloDemo.classpath"/>
         </javac>
-    	 <jar jarfile="bin\HelloTest.jar" 	basedir="bin"  	includes = "*.class" update="true"/>
+    	 <jar jarfile="bin\HelloTest.jar" 	basedir="bin"  	includes = "*.class" />
         </target>
     <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
     <target name="HelloWorld (1)">
