@@ -37,6 +37,7 @@
             <src path="src"/>
             <classpath refid="HelloDemo.classpath"/>
         </javac>
+    	 <jar jarfile="HelloTest.jar" 	basedir="bin"  	includes = "*.class"/>
     </target>
     <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
     <target name="HelloWorld (1)">
@@ -51,8 +52,7 @@
             <test name="HelloTest" todir="${junit.output.dir}"/>
             <jvmarg line="-ea"/>
             <classpath refid="HelloDemo.classpath"/>
-        </junit>
-    	 <jar jarfile="HelloTest.jar" 	basedir="bin"  	includes = "*.class"/>
+        </junit>    	
     </target>
     <target name="junitreport">
         <junitreport todir="${junit.output.dir}">
