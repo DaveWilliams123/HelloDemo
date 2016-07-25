@@ -14,4 +14,11 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>tests/jmeter/JunitJenkings.jmx</name>
+			<type>1</type>
+			<location>F:/JMeter Jenkings Demo/HelloDemo/tests/jmeter/JunitJenkings.jmx</location>
+		</link>
+	</linkedResources>
 </projectDescription>
