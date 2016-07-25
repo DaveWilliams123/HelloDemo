@@ -65,6 +65,7 @@
           	   <jar 
           	   	destfile="bin/HelloTest.jar"
           	   	basedir="bin"
+          	  	includes = "*.*"
           	   	>
 
           	   </jar>
