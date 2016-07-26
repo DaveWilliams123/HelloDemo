@@ -31,7 +31,7 @@
        basedir="results/jtl"
        destdir="results/html"
        includes="*.jtl"
-       style="${jmeter-home}/extras/jmeter-results-detail-report_21.xsl"/>
+       style="${jmeter-home}/extras/jmeter-results-detail-report.xsl"/>
   </target>
   <target name="all" depends="test, report"/>
 </project>
