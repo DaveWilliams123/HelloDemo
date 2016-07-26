@@ -8,7 +8,7 @@ public class HelloWorld {
 	}
 public String Hello()
 {
-	if (Math.random() * 101 > 10)
+	if (Math.random() * 101 > 1)
 	{
 		try {
 			Thread.sleep((int) Math.floor(Math.random() * 20000));
