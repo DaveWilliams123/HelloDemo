@@ -30,7 +30,7 @@
     <xslt
        in="results/jtl/JunitJenkings.jtl"
        out="results/html/JunitJenkings.html"
-       style="${jmeter-home}/extras/jmeter-results-report.xsl"/>
+       style="${jmeter-home}/extras/jmeter-results-report_21.xsl"/>
   </target>
   <target name="all" depends="test, report"/>
 </project>
