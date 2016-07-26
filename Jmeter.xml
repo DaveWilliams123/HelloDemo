@@ -13,8 +13,8 @@
   <target name="clean">
     <delete dir="results"/>
     <delete file="jmeter.log"/>
-    <mkdir dir="results/jtl"/>
-    <mkdir dir="results/html"/>
+    <mkdir dir="${jmeter-home}\results\jtl"/>
+    <mkdir dir="${jmeter-home}\results\html"/>
   </target>
   <target name="test" depends="clean">
     <jmeter
