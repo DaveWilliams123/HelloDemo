@@ -11,7 +11,7 @@
     classname="org.programmerplanet.ant.taskdefs.jmeter.JMeterTask"
     classpathref="ant.jmeter.classpath" />
   <target name="clean">
-    <delete dir="results"/>
+    <delete dir="${jmeter-home}\results"/>
     <delete file="jmeter.log"/>
     <mkdir dir="${jmeter-home}\results\jtl"/>
     <mkdir dir="${jmeter-home}\results\html"/>
@@ -19,6 +19,7 @@
   <target name="test" depends="clean">
     <jmeter
        jmeterhome="${jmeter-home}"
+    	
        resultlogdir="${jmeter-home}\results\jtl">
       <testplan dir="${jmeter-home}\bin\JunitJenkings.jmx" />
       <property name="jmeter.save.saveservice.output_format" value="xml"/>
