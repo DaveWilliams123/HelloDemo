@@ -19,8 +19,8 @@
   <target name="test" depends="clean">
     <jmeter
        jmeterhome="${jmeter-home}"
-       resultlogdir="results/jtl">
-      <testplans dir="tests/jmeter" includes="*.jmx"/>
+       resultlogdir="${jmeter-home}\results\jtl">
+      <testplan dir="${jmeter-home}\bin\JunitJenkings.jmx" />
       <property name="jmeter.save.saveservice.output_format" value="xml"/>
     </jmeter>
   </target>
