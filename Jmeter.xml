@@ -19,7 +19,7 @@
   <target name="test" depends="clean">
     <jmeter
        jmeterhome="${jmeter-home}"   	
-       resultlog="${jmeter-home}\results\jtl\JunitJenkings.jtl"
+       resultlog="results\jtl\JunitJenkings.jtl"
     	testplan="${jmeter-home}\bin\JunitJenkings.jmx" />
       <property name="jmeter.save.saveservice.output_format" value="xml"/>
     
@@ -28,8 +28,8 @@
        which can be saved usin jenkins's archive artifact feature -->
   <target name="report" depends="test">
     <xslt
-       in="${jmeter-home}/results/jtl/JunitJenkings.jtl"
-       out="${jmeter-home}/results/html/JunitJenkings.html"
+       in="results/jtl/JunitJenkings.jtl"
+       out="results/html/JunitJenkings.html"
        style="${jmeter-home}/extras/jmeter-results-report.xsl"/>
   </target>
   <target name="all" depends="test, report"/>
