@@ -28,8 +28,8 @@
        which can be saved usin jenkins's archive artifact feature -->
   <target name="report" depends="test">
     <xslt
-       basedir="results/jtl"
-       destdir="results/html"
+       basedir="${jmeter-home}/results/jtl"
+       destdir="${jmeter-home}/results/html"
        includes="*.jtl"
        style="${jmeter-home}/extras/jmeter-results-detail-report.xsl"/>
   </target>
