@@ -11,10 +11,10 @@
     classname="org.programmerplanet.ant.taskdefs.jmeter.JMeterTask"
     classpathref="ant.jmeter.classpath" />
   <target name="clean">
-    <delete dir="${jmeter-home}\results"/>
+    <delete dir="$results"/>
     <delete file="jmeter.log"/>
-    <mkdir dir="${jmeter-home}\results\jtl"/>
-    <mkdir dir="${jmeter-home}\results\html"/>
+    <mkdir dir="results\jtl"/>
+    <mkdir dir="results\html"/>
   </target>
   <target name="test" depends="clean">
     <jmeter
