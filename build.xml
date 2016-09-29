@@ -3,34 +3,30 @@
               Any modifications will be overwritten.
               To include a user specific buildfile here, simply create one in the same
               directory with the processing instruction <?eclipse.ant.import?>
-              as the first entry and export the buildfile again. --><project basedir="." default="build" name="HelloDemo">
-    <property name="junit.output.dir" value="junit"/>
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="HelloWorld">
+    <property environment="env"/>
     <property name="debuglevel" value="source,lines,vars"/>
-    <property name="target" value="1.7"/>
-    <property name="source" value="1.7"/>
-	<property environment="env"/>
+    <property name="target" value="1.8"/>
+    <property name="source" value="1.8"/>
     <path id="JUnit 4.libraryclasspath">
-        <pathelement location="C:/Users/SE123553admin/.p2/pool/plugins/org.junit_4.12.0.v201504281640/junit.jar"/>
-        <pathelement location="C:/Users/SE123553admin/.p2/pool/plugins/org.hamcrest.core_1.3.0.v201303031735.jar"/>
+        <pathelement location="../../.p2/pool/plugins/org.junit_4.12.0.v201504281640/junit.jar"/>
+        <pathelement location="../../.p2/pool/plugins/org.hamcrest.core_1.3.0.v201303031735.jar"/>
     </path>
-    <path id="HelloDemo.classpath">
+    <path id="HelloWorld.classpath">
         <pathelement location="bin"/>
         <path refid="JUnit 4.libraryclasspath"/>
+        <pathelement location="F:/apache-jmeter-3.0/apache-jmeter-3.0/lib/ext/ApacheJMeter_core.jar"/>
+        <pathelement location="F:/apache-jmeter-3.0/apache-jmeter-3.0/lib/ext/ApacheJMeter_java.jar"/>
     </path>
-              	<target name="echoVariables">
-              	   <echo>
-              	      Here are sample environment variables in my operating system:
-              	      ${env.CommonProgramFiles}
-              	      ${env.CommonProgramFiles(x86)}
-              	      ${env.CommonProgramW6432}
-              	      ${env.JMETER_HOME}
-              	   </echo>
-              	</target>
-
     <target name="init">
         <mkdir dir="bin"/>
         <copy includeemptydirs="false" todir="bin">
             <fileset dir="src">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="tests">
                 <exclude name="**/*.java"/>
             </fileset>
         </copy>
@@ -43,41 +39,29 @@
     <target name="build-subprojects"/>
     <target depends="init" name="build-project">
         <echo message="${ant.project.name}: ${ant.file}"/>
-    	 <echo>
-    	              	      Here are sample environment variables in my operating system:
-    	              	      ${env.CommonProgramFiles}
-    	              	      ${env.CommonProgramFiles(x86)}
-    	              	      ${env.CommonProgramW6432}
-    	              	      ${env.JMETER_HOME}
-    	              	   </echo>
         <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
             <src path="src"/>
-            <classpath refid="HelloDemo.classpath"/>
+            <src path="tests"/>
+            <classpath refid="HelloWorld.classpath"/>
         </javac>
-    	 <jar destfile="${env.JMETER_HOME}\lib\junit\HelloTest.jar" 	basedir="bin"  	includes = "*.class" />
-        </target>
+    </target>
     <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
-    <target name="HelloWorld (1)">
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+    <target name="HelloWorld">
         <java classname="HelloWorld" failonerror="true" fork="yes">
-            <classpath refid="HelloDemo.classpath"/>
+            <classpath refid="HelloWorld.classpath"/>
         </java>
     </target>
-    <target name="HelloTest (1)">
-        <mkdir dir="${junit.output.dir}"/>
-        <junit fork="yes" printsummary="withOutAndErr">
-            <formatter type="xml"/>
-            <test name="HelloTest" todir="${junit.output.dir}"/>
-            <jvmarg line="-ea"/>
-            <classpath refid="HelloDemo.classpath"/>
-        </junit>    	
-    </target>
-    <target name="junitreport">
-        <junitreport todir="${junit.output.dir}">
-            <fileset dir="${junit.output.dir}">
-                <include name="TEST-*.xml"/>
-            </fileset>
-            <report format="frames" todir="${junit.output.dir}"/>
-        </junitreport>
-    </target>
-          	
 </project>
